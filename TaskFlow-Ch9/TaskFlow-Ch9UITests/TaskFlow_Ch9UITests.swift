@@ -33,6 +33,101 @@ final class TaskFlow_Ch9UITests: XCTestCase {
         // https://developer.apple.com/documentation/xcuiautomation
     }
 
+    // MARK: Assignment 1 - UI & Integration Tests
+
+    /// helper pa escribir la tarea y darle Add
+    @MainActor
+    private func addTask(_ title: String, in app: XCUIApplication) {
+        let addTaskField = app.textFields["Add Task"]
+        XCTAssertTrue(addTaskField.waitForExistence(timeout: 5.0), "The text field should exist on the main screen")
+        addTaskField.tap()
+        addTaskField.typeText(title)
+        app.buttons["Add"].tap()
+    }
+
+    /// Assignment 1 - UI test: completar una tarea
+    @MainActor
+    func testMarkTaskCompleted() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        // primero agrego una tarea
+        addTask("Finish homework", in: app)
+
+        // le pico al boton Complete de la primera
+        let taskCell = app.cells.element(boundBy: 0)
+        XCTAssertTrue(taskCell.waitForExistence(timeout: 2.0), "The task cell should appear")
+        let completeButton = taskCell.buttons["Complete"]
+        XCTAssertFalse(completeButton.isSelected, "A new task starts incomplete")
+        completeButton.tap()
+
+        // checo que quede marcada y el contador cambie
+        XCTAssertTrue(completeButton.isSelected)
+        XCTAssertTrue(app.staticTexts["Completed: 1/1"].exists)
+    }
+
+    /// Assignment 1 - Integration test: agregar y ver la tarea en la lista
+    @MainActor
+    func testAddingAndDisplayingTasks() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        addTask("Walk the Dog", in: app)
+
+        XCTAssertTrue(app.cells.staticTexts["Walk the Dog"].waitForExistence(timeout: 2.0))
+    }
+
+    /// Extra - con el campo vacio el boton Add no jala
+    @MainActor
+    func testAddButtonDisabledWhenFieldIsEmpty() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        let addButton = app.buttons["Add"]
+        XCTAssertTrue(addButton.waitForExistence(timeout: 5.0))
+        XCTAssertFalse(addButton.isEnabled, "Add should be disabled with an empty title")
+        XCTAssertEqual(app.cells.count, 0)
+    }
+
+    // MARK: Assignment 2 - TDD Priority (UI)
+
+    /// elijo High al agregar y checo que salga la etiqueta
+    @MainActor
+    func testAddTaskWithHighPriority_showsHighLabel() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        let highSegment = app.segmentedControls["priority_picker"].buttons["High"]
+        XCTAssertTrue(highSegment.waitForExistence(timeout: 5.0), "Should have a priority picker")
+        highSegment.tap()
+
+        addTask("Study for exam", in: app)
+
+        let cell = app.cells.element(boundBy: 0)
+        XCTAssertTrue(cell.waitForExistence(timeout: 2.0))
+        XCTAssertTrue(cell.staticTexts["High"].exists, "The task should show its priority")
+    }
+
+    // MARK: Assignment 3 - XCUITest + CI
+
+    /// test del assignment 3: agregar "Complete Assignment" y que salga en la lista
+    @MainActor
+    func testAddingTask() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        let addTaskField = app.textFields["Add Task"]
+        XCTAssertTrue(addTaskField.waitForExistence(timeout: 5.0))
+        addTaskField.tap()
+        addTaskField.typeText("Complete Assignment")
+
+        let addButton = app.buttons["Add"]
+        addButton.tap()
+
+        // en SwiftUI la lista no es table, por eso app.cells
+        XCTAssertTrue(app.cells.staticTexts["Complete Assignment"].waitForExistence(timeout: 2.0))
+    }
+
     @MainActor
     func testLaunchPerformance() throws {
         // This measures how long it takes to launch your application.

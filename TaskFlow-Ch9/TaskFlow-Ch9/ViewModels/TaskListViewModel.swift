@@ -22,12 +22,12 @@ class TaskListViewModel: ObservableObject {
     }
     
     // MARK: Class #3 Functions
-    /// Load tasks with Stub
+
     func loadTasks() {
         tasks = service.fetchTasks()
     }
     
-    /// Remove tasks with mocks and modified from first class
+
     func removeTask(at index: Int) {
         guard tasks.indices.contains(index) else { return }
         let removedId = tasks[index].id
@@ -49,7 +49,7 @@ class TaskListViewModel: ObservableObject {
     
     /// Toggle completion function
     func toggleCompletion(id: UUID) {
-        guard let index = tasks.firstIndex(where: { $0.id == id}) else { return }
+        guard let index = index(of: id) else { return }
         tasks[index].isCompleted.toggle()
     }
     
@@ -77,15 +77,28 @@ class TaskListViewModel: ObservableObject {
         }
     }
     
+    // MARK: Assignment 2 - TDD Priority
+
+    /// cambiar prioridad de una tarea
+    func setPriority(id: UUID, to priority: Priority) {
+        guard let index = index(of: id) else { return }
+        tasks[index].priority = priority
+    }
+
     /// Toggle favorite
     func toggleFavorite(id: UUID) {
-        guard let index = tasks.firstIndex(where: { $0.id == id }) else { return }
+        guard let index = index(of: id) else { return }
         tasks[index].isFavorite.toggle()
     }
     
     /// Favorite tasks filter
     var favoriteTasks: [TaskItem] {
         tasks.filter { $0.isFavorite }
+    }
+
+    // refactor: buscar la tarea por id en un solo lugar
+    private func index(of id: UUID) -> Int? {
+        tasks.firstIndex(where: { $0.id == id })
     }
     
 }

@@ -18,4 +18,7 @@ struct TaskItem: Identifiable, Equatable {
 
 enum Priority: String, CaseIterable {
     case low, medium, high
+
+    // texto pa la etiqueta (low -> Low)
+    var title: String { rawValue.capitalized }
 }

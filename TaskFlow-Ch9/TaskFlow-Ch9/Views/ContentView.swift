@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var viewModel = TaskListViewModel()
     @State private var newTaskTitle: String = ""
+    @State private var newTaskPriority: Priority = .medium
 
     var body: some View {
         NavigationStack{
@@ -17,22 +18,32 @@ struct ContentView: View {
                 HStack {
                     TextField("New task...", text: $newTaskTitle)
                         .textFieldStyle(.roundedBorder)
+                        .accessibilityIdentifier("Add Task")
                     Button("Add") {
-                        viewModel.addTask(title: newTaskTitle)
+                        viewModel.addTask(title: newTaskTitle, priority: newTaskPriority)
                         newTaskTitle = ""
                     }
                     .accessibilityIdentifier("add_task_button")
+                    // si esta vacio no deja agregar
+                    .disabled(newTaskTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
-                .padding()
+                .padding(.horizontal)
+                .padding(.top)
+
+                // elegir prioridad antes de agregar
+                Picker("Priority", selection: $newTaskPriority) {
+                    ForEach(Priority.allCases, id: \.self) { priority in
+                        Text(priority.title).tag(priority)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .accessibilityIdentifier("priority_picker")
+                .padding(.horizontal)
                 
                 List {
                     ForEach(viewModel.tasks) { task in
-                        HStack {
-                            Text(task.title)
-                            Spacer()
-                            if task.isCompleted {
-                                Image(systemName: "checkmark.circle.fill")
-                            }
+                        TaskRowView(task: task) {
+                            viewModel.toggleCompletion(id: task.id)
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {

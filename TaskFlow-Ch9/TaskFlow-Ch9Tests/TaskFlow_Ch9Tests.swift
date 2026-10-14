@@ -228,4 +228,49 @@ final class TaskFlow_Ch9Tests: XCTestCase {
         
         XCTAssertEqual(mockScheduler.scheduleCallCount, 1)
     }
+
+    // MARK: Assignment 1 - Unit Test
+
+    /// Assignment 1 - Unit test: agregar una tarea
+    func testAddingTask() {
+        let taskManager = TaskListViewModel()
+        taskManager.addTask(title: "Buy Groceries")
+        XCTAssertEqual(taskManager.tasks.count, 1)
+        XCTAssertEqual(taskManager.tasks[0].title, "Buy Groceries")
+    }
+
+    // MARK: Assignment 2 - TDD Priority
+
+    /// test del assignment, adaptado a TaskItem
+    func testTaskHasPriority() {
+        var task = TaskItem(title: "Complete Homework")
+        task.priority = .high
+        XCTAssertEqual(task.priority, .high)
+    }
+
+    /// cambiarle la prioridad a una tarea que ya existe
+    func test_setPriority_changesTaskPriority() {
+        viewModel.addTask(title: "Complete Homework")
+        let id = viewModel.tasks[0].id
+
+        viewModel.setPriority(id: id, to: .high)
+
+        XCTAssertEqual(viewModel.tasks[0].priority, .high)
+    }
+
+    /// si el id no existe no truena ni cambia nada
+    func test_setPriority_withUnknownId_doesNothing() {
+        viewModel.addTask(title: "Task A", priority: .low)
+
+        viewModel.setPriority(id: UUID(), to: .high)
+
+        XCTAssertEqual(viewModel.tasks[0].priority, .low)
+    }
+
+    /// el texto que sale en la etiqueta de la UI
+    func test_priority_title() {
+        XCTAssertEqual(Priority.high.title, "High")
+        XCTAssertEqual(Priority.medium.title, "Medium")
+        XCTAssertEqual(Priority.low.title, "Low")
+    }
 }
