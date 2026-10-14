@@ -1,0 +1,41 @@
+name: iOS CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      # busca el primer iPhone disponible en el runner
+      - name: Pick a simulator
+        id: sim
+        run: |
+          SIM_ID=$(xcrun simctl list devices available -j | python3 -c "import json,sys; d=json.load(sys.stdin)['devices']; print(next(x['udid'] for k,v in d.items() if 'iOS' in k for x in v if 'iPhone' in x['name']))")
+          echo "Using simulator $SIM_ID"
+          echo "id=$SIM_ID" >> $GITHUB_OUTPUT
+
+      - name: Build and Test
+        run: |
+          xcodebuild test \
+            -project TaskFlow-Ch9/TaskFlow-Ch9.xcodeproj \
+            -scheme TaskFlow-Ch9 \
+            -sdk iphonesimulator \
+            -destination "id=${{ steps.sim.outputs.id }}" \
+            -skip-testing:TaskFlow-Ch9UITests/TaskFlow_Ch9UITests/testLaunchPerformance \
+            CODE_SIGNING_ALLOWED=NO
