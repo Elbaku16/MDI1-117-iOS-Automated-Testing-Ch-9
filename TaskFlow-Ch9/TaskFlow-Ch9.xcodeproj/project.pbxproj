@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 110;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
@@ -50,18 +50,24 @@
 /* Begin PBXFrameworksBuildPhase section */
 		A1067B92306DE17A00F02F01 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A1067B9F306DE17C00F02F01 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A1067BA9306DE17C00F02F01 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -98,6 +104,8 @@
 				A1067B93306DE17A00F02F01 /* Resources */,
 			);
 			buildRules = (
+			);
+			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
 				A1067B97306DE17A00F02F01 /* TaskFlow-Ch9 */,
@@ -196,36 +204,48 @@
 /* Begin PBXResourcesBuildPhase section */
 		A1067B93306DE17A00F02F01 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A1067BA0306DE17C00F02F01 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A1067BAA306DE17C00F02F01 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A1067B91306DE17A00F02F01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A1067B9E306DE17C00F02F01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A1067BA8306DE17C00F02F01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -243,7 +263,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		A1067BB2306DE17C00F02F01 /* Debug configuration for PBXProject "TaskFlow-Ch9" */ = {
+		A1067BB2306DE17C00F02F01 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -304,7 +324,7 @@
 			};
 			name = Debug;
 		};
-		A1067BB3306DE17C00F02F01 /* Release configuration for PBXProject "TaskFlow-Ch9" */ = {
+		A1067BB3306DE17C00F02F01 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -357,7 +377,7 @@
 			};
 			name = Release;
 		};
-		A1067BB5306DE17C00F02F01 /* Debug configuration for PBXNativeTarget "TaskFlow-Ch9" */ = {
+		A1067BB5306DE17C00F02F01 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -378,7 +398,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
@@ -399,7 +419,7 @@
 			};
 			name = Debug;
 		};
-		A1067BB6306DE17C00F02F01 /* Release configuration for PBXNativeTarget "TaskFlow-Ch9" */ = {
+		A1067BB6306DE17C00F02F01 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -420,7 +440,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
@@ -441,14 +461,14 @@
 			};
 			name = Release;
 		};
-		A1067BB8306DE17C00F02F01 /* Debug configuration for PBXNativeTarget "TaskFlow-Ch9Tests" */ = {
+		A1067BB8306DE17C00F02F01 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "TaskFlow-Ch9.TaskFlow-Ch9Tests";
@@ -466,14 +486,14 @@
 			};
 			name = Debug;
 		};
-		A1067BB9306DE17C00F02F01 /* Release configuration for PBXNativeTarget "TaskFlow-Ch9Tests" */ = {
+		A1067BB9306DE17C00F02F01 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "TaskFlow-Ch9.TaskFlow-Ch9Tests";
@@ -491,13 +511,13 @@
 			};
 			name = Release;
 		};
-		A1067BBB306DE17C00F02F01 /* Debug configuration for PBXNativeTarget "TaskFlow-Ch9UITests" */ = {
+		A1067BBB306DE17C00F02F01 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "TaskFlow-Ch9.TaskFlow-Ch9UITests";
@@ -515,13 +535,13 @@
 			};
 			name = Debug;
 		};
-		A1067BBC306DE17C00F02F01 /* Release configuration for PBXNativeTarget "TaskFlow-Ch9UITests" */ = {
+		A1067BBC306DE17C00F02F01 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "TaskFlow-Ch9.TaskFlow-Ch9UITests";
@@ -545,37 +565,40 @@
 		A1067B90306DE17A00F02F01 /* Build configuration list for PBXProject "TaskFlow-Ch9" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1067BB2306DE17C00F02F01 /* Debug configuration for PBXProject "TaskFlow-Ch9" */,
-				A1067BB3306DE17C00F02F01 /* Release configuration for PBXProject "TaskFlow-Ch9" */,
+				A1067BB2306DE17C00F02F01 /* Debug */,
+				A1067BB3306DE17C00F02F01 /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		A1067BB4306DE17C00F02F01 /* Build configuration list for PBXNativeTarget "TaskFlow-Ch9" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1067BB5306DE17C00F02F01 /* Debug configuration for PBXNativeTarget "TaskFlow-Ch9" */,
-				A1067BB6306DE17C00F02F01 /* Release configuration for PBXNativeTarget "TaskFlow-Ch9" */,
+				A1067BB5306DE17C00F02F01 /* Debug */,
+				A1067BB6306DE17C00F02F01 /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		A1067BB7306DE17C00F02F01 /* Build configuration list for PBXNativeTarget "TaskFlow-Ch9Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1067BB8306DE17C00F02F01 /* Debug configuration for PBXNativeTarget "TaskFlow-Ch9Tests" */,
-				A1067BB9306DE17C00F02F01 /* Release configuration for PBXNativeTarget "TaskFlow-Ch9Tests" */,
+				A1067BB8306DE17C00F02F01 /* Debug */,
+				A1067BB9306DE17C00F02F01 /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		A1067BBA306DE17C00F02F01 /* Build configuration list for PBXNativeTarget "TaskFlow-Ch9UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1067BBB306DE17C00F02F01 /* Debug configuration for PBXNativeTarget "TaskFlow-Ch9UITests" */,
-				A1067BBC306DE17C00F02F01 /* Release configuration for PBXNativeTarget "TaskFlow-Ch9UITests" */,
+				A1067BBB306DE17C00F02F01 /* Debug */,
+				A1067BBC306DE17C00F02F01 /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
 	rootObject = A1067B8D306DE17A00F02F01 /* Project object */;
-	validationLevel = 1;
 }
